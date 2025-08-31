@@ -42,7 +42,7 @@ public class BookManagerTest {
         Book book = new Book("Algoritma Machine Learning", "Elyza Virahmalia", 2026);
         bookManager.addBook(book);
 
-        boolean removed = bookManager.removeBook("Basis Data");
+        boolean removed = bookManager.removeBook("Dunia Shopie");
         assertFalse(removed);
         assertEquals(1, bookManager.getBookCount());
     }
@@ -51,7 +51,16 @@ public class BookManagerTest {
     @Test
     @DisplayName("Test mencari buku berdasarkan author")
     void testFindBookByAuthor() {
-        // kosong
+        Book b1 = new Book ("The Courage To Be Dislike", "Fumitake Koga", 2019);
+        Book b2 = new Book ("Holy Mother", "Akiyoshi Rikako", 2019);
+        Book b3 = new Book ("Fihi Ma Fihi", "Jalaludin Rumi", 2013);
+
+        bookManager.addBook(b1);
+        bookManager.addBook(b2);
+        bookManager.addBook(b3);
+
+        List<Book> hasil = bookManager.findBooksByAuthor("Akiyoshi Rikako");
+        assertEquals(1, hasil.size());
     }
 
     // Lengkapi Unit Test dibawah untuk seluruh buku yang ada di dalam List
