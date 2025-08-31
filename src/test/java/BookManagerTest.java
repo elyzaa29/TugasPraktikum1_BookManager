@@ -67,6 +67,15 @@ public class BookManagerTest {
     @Test
     @DisplayName("Test mendapatkan semua buku")
     void testGetAllBooks() {
-        // kosong
+        Book b1 = new Book ("The Courage To Be Dislike", "Fumitake Koga", 2019);
+        Book b2 = new Book ("Fihi Ma Fihi", "Jalaludin Rumi", 2013);
+
+        bookManager.addBook(b1);
+        bookManager.addBook(b2);
+
+        List<Book> semua = bookManager.getAllBooks();
+        assertEquals(2, semua.size());
+        assertTrue(semua.contains(b1));
+        assertTrue(semua.contains(b2));
     }
 }
